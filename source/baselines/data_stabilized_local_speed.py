@@ -70,7 +70,7 @@ class StabilizedLocalSpeedSequence(CompiledSequence):
 
         local_v = ori_q[:-self.w].conj() * quaternion.from_float_array(glob_v) * ori_q[:-self.w]
         local_v = quaternion.as_float_array(local_v)[:, 1:]
-        local_v_g = align_3dvector_with_gravity(local_v, gravity[:-self.w])
+        local_v_g = align_3dvector_with_gravity_legacy(local_v, gravity[:-self.w])
 
         start_frame = self.info.get('start_frame', 0)
         self.ts = ts[start_frame:]
